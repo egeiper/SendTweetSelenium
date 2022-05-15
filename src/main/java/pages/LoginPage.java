@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class LoginPage extends BasePage {
 
+    Scanner sc=new Scanner(System.in);
+
     @FindBy(css = "input[type='text']")
     public  WebElement textBox;
 
@@ -26,7 +28,6 @@ public class LoginPage extends BasePage {
 
     public void userNameCheck(String username) {
         By usernameNextButton=By.cssSelector("[data-testid=\"ocfSettingsListPrimaryText\"]");
-        Scanner sc = new Scanner(System.in);
         textBox.sendKeys(username);
         clickElement(nextButton);
         while (getDriver().findElements(usernameNextButton).size() != 0) { // if we couldn't skip the page which means button still appears on the page.
@@ -40,7 +41,6 @@ public class LoginPage extends BasePage {
 
     public void passwordCheck(String password) {
         By loginFormButton=By.cssSelector("[data-testid=\"LoginForm_Login_Button\"]");
-        Scanner sc = new Scanner(System.in);
         passwordTextBox.sendKeys(password);
         clickElement(loginButton);
         while (getDriver().findElements(loginFormButton).size() != 0) { // if we couldn't skip the page which means button still appears on the page.
@@ -53,7 +53,6 @@ public class LoginPage extends BasePage {
     }
     public void verifyUsername(String username){
         By verifyButton=By.cssSelector("[data-testid=\"ocfEnterTextNextButton\"]");
-        Scanner sc=new Scanner(System.in);
         textBox.sendKeys(username);
         clickElement(verifyNextButton);
         while (getDriver().findElements(verifyButton).size() != 0) { // if we couldn't skip the page which means button still appears on the page.
