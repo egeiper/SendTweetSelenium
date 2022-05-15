@@ -22,9 +22,10 @@ public class Driver extends Utils {
     protected static void startDriver() {
         ChromeOptions optionsChrome = new ChromeOptions();
         System.setProperty("webdriver.chrome.driver", "src/main/java/utils/driver/chromedriver");
-        optionsChrome.setHeadless(true);
+        System.setProperty("webdriver.chrome.silentOutput", "true"); // disable unwanted console messages from chromeDriver
+        //optionsChrome.setHeadless(true);
         driver = new ChromeDriver(optionsChrome);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         setDriver(driver);
         initializeDate();
 

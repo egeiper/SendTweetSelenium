@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class SendTweetMain extends Driver {
-
     public static void main(String[] args) throws IOException {
         run();
     }
